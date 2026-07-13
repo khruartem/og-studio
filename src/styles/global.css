@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-background: #07142d;
+  --color-surface: #0d1b3d;
+  --color-primary: #d12eff;
+  --color-muted: #a6b0c3;
+
+  /* Typography */
+  --font-sans: "Manrope", sans-serif;
+
+  /* Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+
+  /* Shadows */
+  --shadow-glow: 0 0 40px rgb(209 46 255 / 0.35);
+}
+
+@layer base {}
+
+@layer components {}
+
+@layer utilities {}
