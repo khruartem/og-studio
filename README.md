@@ -1,43 +1,123 @@
-# Astro Starter Kit: Minimal
+# OG Studio
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Современный сайт цифровой студии, разработанный на Astro с использованием React Islands и Tailwind CSS v4.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Проект ориентирован на высокую производительность, доступность, удобство сопровождения и масштабируемую архитектуру компонентов.
 
-## 🚀 Project Structure
+## ✨ Особенности
 
-Inside of your Astro project, you'll see the following folders and files:
+- ⚡ Astro
+- ⚛️ React Islands
+- 🎨 Tailwind CSS v4
+- 📱 Адаптивный дизайн
+- 🧩 Компонентная архитектура
+- 🚀 Оптимизированная производительность
+- 🔍 SEO-ready
+
+---
+
+## 🛠️ Технологии
+
+- Astro
+- React
+- TypeScript
+- Tailwind CSS v4
+- Vite
+
+---
+
+## 📂 Структура проекта
 
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+src/
+├── assets/
+├── components/
+│   ├── layout/
+│   ├── sections/
+│   ├── shared/
+│   └── ui/
+├── config/
+├── content/
+├── layouts/
+├── lib/
+├── pages/
+├── react/
+├── styles/
+└── utils/
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+---
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## 🚀 Разработка
 
-Any static assets, like images, can be placed in the `public/` directory.
+Установка зависимостей
 
-## 🧞 Commands
+```bash
+npm install
+```
 
-All commands are run from the root of the project, from a terminal:
+Запуск проекта
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+```bash
+npm run dev
+```
 
-## 👀 Want to learn more?
+Production-сборка
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```bash
+npm run build
+```
+
+Предпросмотр сборки
+
+```bash
+npm run preview
+```
+
+---
+
+## 📐 Архитектурные принципы
+
+Проект строится на нескольких основных принципах:
+
+- **Astro First** — статические интерфейсы реализуются на Astro.
+- **React Only When Needed** — React используется только для интерактивных компонентов.
+- **Composition over Duplication** — переиспользование компонентов вместо копирования кода.
+- **Design System** — единая система токенов, компонентов и правил оформления.
+- **Performance by Default** — минимальный объём JavaScript на клиенте.
+
+---
+
+## 🎯 Цели проекта
+
+- Высокая производительность
+- Масштабируемая архитектура
+- Современный стек
+- Простота поддержки
+- Переиспользуемые UI-компоненты
+
+---
+
+## 📌 Статус проекта
+
+🚧 Проект находится в активной разработке.
+
+---
+
+## 📄 Лицензия
+
+MIT
+
+## 👨‍💻 Разработчик
+
+Проект разработан и поддерживается [@khruartem](https://github.com/khruartem)
+
+---
+
+## 📞 Связь
+
+Для вопросов и предложений обратитесь к организатору проекта через GitHub Issues.
+
+---
+
+**Создано с ❤️ для [Открытой Территории](https://otkter.ru/)**
