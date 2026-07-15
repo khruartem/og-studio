@@ -1,0 +1,37 @@
+@theme {
+  /* Palette */
+  --color-abyss: #011937;
+  --color-pulse: #c72fcb;
+  --color-dark-pulse: #ab2eb2;
+  --color-badge: #e2a188;
+  --color-lilac: #8b7cff;
+  --color-light-100: #fff;
+  --color-nephritis-120: #21aa58;
+
+  --color-light-80: rgba(255, 255, 255, 0.8);
+  --color-mist: #a6b0c3;
+
+  /* Background */
+  --color-background: var(--color-abyss);
+  --color-surface: #0d1b3d;
+
+  /* Text */
+  --color-text-primary: var(--color-light-100);
+  --color-text-secondary: var(--color-mist);
+
+  /* Brand */
+  --color-accent: var(--color-pulse);
+
+  /* Typography */
+  --font-sans: "Onest", sans-serif;
+  --font-display: "Unbounded", sans-serif;
+
+  /* Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+
+  /* Shadows */
+  --shadow-glow: 0 0 40px rgb(209 46 255 / 0.35);
+}
