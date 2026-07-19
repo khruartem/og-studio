@@ -1,0 +1,25 @@
+---
+import Logo from "../../assets/logos/logo.svg";
+
+interface Props {
+  variant: "light" | "dark";
+  class?: string;
+}
+
+const { variant = "dark", class: className = "" } = Astro.props as Props;
+
+const VARIANT_STYLES = {
+  light: `
+    --logo-text-color: var(--color-light-100);
+    --logo-mark-color: var(--color-light-100);
+  `,
+  dark: `
+    --logo-text-color: var(--color-light-100);
+    --logo-mark-color: var(--color-pulse);
+  `,
+} as const;
+---
+
+<a style={VARIANT_STYLES[variant]} class={className}>
+  <Logo />
+</a>
