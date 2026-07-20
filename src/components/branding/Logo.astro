@@ -1,8 +1,10 @@
 ---
 import Logo from "../../assets/logos/logo.svg";
 
+type LogoVariant = "light" | "dark";
+
 interface Props {
-  variant: "light" | "dark";
+  variant: LogoVariant;
   class?: string;
 }
 
@@ -20,6 +22,6 @@ const VARIANT_STYLES = {
 } as const;
 ---
 
-<a style={VARIANT_STYLES[variant]} class={className}>
+<a href="/" style={VARIANT_STYLES[variant]} class={className}>
   <Logo />
 </a>

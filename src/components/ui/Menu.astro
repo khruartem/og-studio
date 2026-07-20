@@ -1,0 +1,14 @@
+---
+import type { MenuItem } from "../../data/navigation";
+
+interface Props {
+  items: MenuItem[];
+  class?: string;
+}
+
+const { items, class: className = "" } = Astro.props as Props;
+---
+
+<ul>
+  {items.map((item) => <MenuItem item={item} />)}
+</ul>
