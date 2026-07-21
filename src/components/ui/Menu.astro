@@ -1,14 +1,15 @@
 ---
-import type { MenuItem } from "../../data/navigation";
+import MenuItem from "../ui/MenuItem.astro";
+import type { MenuItem as MenuItemType } from "../../data/navigation";
 
 interface Props {
-  items: MenuItem[];
+  items: MenuItemType[];
   class?: string;
 }
 
 const { items, class: className = "" } = Astro.props as Props;
 ---
 
-<ul>
+<ul class={className}>
   {items.map((item) => <MenuItem item={item} />)}
 </ul>

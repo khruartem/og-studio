@@ -1,5 +1,3 @@
-import type { HTMLAttributeAnchorTarget } from "react";
-
 export type MenuItem = {
   label: string;
   href: string;

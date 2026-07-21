@@ -1,0 +1,26 @@
+---
+import clsx from "clsx";
+import type { MenuItem } from "../../data/navigation";
+
+interface Props {
+  item: MenuItem;
+  class?: string;
+}
+
+const { item, class: className = "" } = Astro.props as Props;
+const { label, href } = item;
+---
+
+<li class={clsx("menu-item", className)}>
+  <a href={href}>{label}</a>
+</li>
+
+<style>
+  .menu-item:hover a {
+    box-shadow: inset 0 -1px 0 var(--color-dark-pulse);
+  }
+
+  .menu-item:active a {
+    box-shadow: inset 0 -1px 0 var(--color-pulse);
+  }
+</style>
