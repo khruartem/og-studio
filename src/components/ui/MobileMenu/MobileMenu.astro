@@ -1,0 +1,36 @@
+---
+import OpenNavigationButton from "../../../assets/icons/burger.svg";
+import Menu from "../Menu.astro";
+
+import { navigation } from "../../../data/navigation";
+
+const items = navigation;
+---
+
+<div class="mobile-menu" data-mobile-menu data-state="closed">
+  <button data-trigger aria-expanded="false" aria-controls="mobile-menu-panel">
+    <OpenNavigationButton class="text-pulse" />
+  </button>
+
+  <div data-overlay></div>
+
+  <aside id="mobile-menu-panel" data-panel>
+    <Menu items={items} />
+
+    <Socials />
+
+    <Copyright />
+  </aside>
+</div>
+
+<script>
+  import { createMobileMenu } from "./create-menu";
+
+  document.querySelectorAll("[data-mobile-menu]").forEach((menu) => {
+    const controller = createMobileMenu(menu as HTMLElement);
+
+    const trigger = menu.querySelector("[data-trigger]") as HTMLButtonElement;
+
+    trigger?.addEventListener("click", controller.toggle);
+  });
+</script>
