@@ -1,0 +1,22 @@
+---
+import Link from "../Link.astro";
+
+import { getCurrentYear } from "./get-year";
+
+interface Props {
+  class?: string;
+}
+
+const CURRENT_YEAR = getCurrentYear();
+
+const { class: className = "" } = Astro.props as Props;
+---
+
+<div class={className}>
+  <span>{CURRENT_YEAR}</span><span
+    >Создано под эгидой творческой экосистемы</span
+  ><span
+    ><Link href="https://otkter.ru/" target="_blank">«Открытая Территория»</Link
+    ></span
+  >
+</div>

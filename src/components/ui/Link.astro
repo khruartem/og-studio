@@ -1,0 +1,22 @@
+---
+interface Props {
+  href: string;
+
+  target?: HTMLAttributeAnchorTarget;
+  class?: string;
+}
+
+const { href, target, class: className = "" } = Astro.props as Props;
+---
+
+<a href={href} target={target} class:list={["link", className]}><slot /></a>
+
+<style>
+  .link:hover {
+    box-shadow: inset 0 -1px 0 var(--color-dark-pulse);
+  }
+
+  .link:active {
+    color: var(--color-lilac);
+  }
+</style>
