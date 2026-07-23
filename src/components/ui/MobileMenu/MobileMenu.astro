@@ -1,6 +1,9 @@
 ---
-import OpenNavigationButton from "../../../assets/icons/burger.svg";
 import Menu from "../Menu.astro";
+import Socials from "../Socials.astro";
+import Copyright from "../Copyright/Copyright.astro";
+
+import OpenNavigationButton from "../../../assets/icons/burger.svg";
 
 import { navigation } from "../../../data/navigation";
 
@@ -9,7 +12,7 @@ const items = navigation;
 
 <div class="mobile-menu" data-mobile-menu data-state="closed">
   <button data-trigger aria-expanded="false" aria-controls="mobile-menu-panel">
-    <OpenNavigationButton class="text-pulse" />
+    <OpenNavigationButton data-open class="text-pulse" />
   </button>
 
   <div data-overlay></div>
@@ -22,6 +25,12 @@ const items = navigation;
     <Copyright />
   </aside>
 </div>
+
+<style>
+  ["data-open"] {
+    visibility: inherit;
+  }
+</style>
 
 <script>
   import { createMobileMenu } from "./create-menu";
