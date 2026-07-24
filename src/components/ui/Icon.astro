@@ -1,0 +1,32 @@
+---
+import Telegram from "../../../assets/icons/telegram.svg";
+import VK from "../../../assets/icons/vk.svg";
+import Burger from "../../../assets/icons/burger.svg";
+import Close from "../../../assets/icons/close.svg";
+
+const icons = {
+  telegram: Telegram,
+  vk: VK,
+  burger: Burger,
+  close: Close,
+} as const;
+
+type IconName = keyof typeof icons;
+
+interface Props {
+  name: IconName;
+  "aria-label"?: string;
+
+  class?: string;
+}
+
+const {
+  name,
+  "aria-label": ariaLabel = "",
+  class: className = "",
+} = Astro.props as Props;
+
+const SVG = icons[name];
+---
+
+<SVG class:list={["size-8 text-pulse", className]} aria-label={ariaLabel} />
