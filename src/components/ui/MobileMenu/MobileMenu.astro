@@ -1,7 +1,7 @@
 ---
 import Menu from "../Menu.astro";
 import Socials from "../Socials.astro";
-import Copyright from "../Copyright/Copyright.astro";
+import Copyright from "../Copyright";
 
 import OpenNavigationButton from "../../../assets/icons/burger.svg";
 
@@ -11,13 +11,17 @@ const items = navigation;
 ---
 
 <div class="mobile-menu" data-mobile-menu data-state="closed">
-  <button data-trigger aria-expanded="false" aria-controls="mobile-menu-panel">
+  <button
+    data-trigger
+    aria-expanded="false"
+    aria-controls="mobile-menu-panel"
+    aria-label="Открыть меню"
+    type="button"
+  >
     <OpenNavigationButton data-open class="text-pulse" />
   </button>
 
-  <div data-overlay></div>
-
-  <aside id="mobile-menu-panel" data-panel>
+  <aside data-panel>
     <Menu items={items} />
 
     <Socials />
@@ -33,9 +37,7 @@ const items = navigation;
 </style>
 
 <script>
-  import { createMobileMenu } from "./mobile-menu-controller";
+  import { initMobileMenu } from "./init-mobile-menu";
 
-  document.querySelectorAll("[data-mobile-menu]").forEach((menu) => {
-    createMobileMenu(menu as HTMLElement).init();
-  });
+  initMobileMenu();
 </script>
