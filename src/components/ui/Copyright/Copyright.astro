@@ -12,11 +12,8 @@ const CURRENT_YEAR = getCurrentYear();
 const { class: className = "" } = Astro.props as Props;
 ---
 
-<div class={className}>
-  <span>{CURRENT_YEAR}</span><span
-    >Создано под эгидой творческой экосистемы</span
-  ><span
-    ><Link href="https://otkter.ru/" target="_blank">«Открытая Территория»</Link
-    ></span
-  >
-</div>
+<small class={className}>
+  {CURRENT_YEAR}
+  Создано под эгидой творческой экосистемы
+  <Link href="https://otkter.ru/" target="_blank">«Открытая Территория»</Link>
+</small>

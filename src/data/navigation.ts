@@ -1,8 +1,10 @@
+import type { HTMLLinkTarget } from "../shared/types/html";
+
 export type MenuItem = {
   label: string;
   href: string;
 
-  target?: HTMLAttributeAnchorTarget;
+  target?: HTMLLinkTarget;
 };
 
 export const navigation: MenuItem[] = [
