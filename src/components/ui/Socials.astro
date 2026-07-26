@@ -8,8 +8,8 @@ import { socials } from "../../data/socials";
   {
     socials.map(({ label, href, icon }) => (
       <li class="p-1">
-        <a href={href} target="_blank">
-          <Icon name={icon} class="text-pulse" aria-label={label} />
+        <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label}>
+          <Icon name={icon} class="text-pulse" />
         </a>
       </li>
     ))
