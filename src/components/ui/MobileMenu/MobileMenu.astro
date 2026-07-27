@@ -2,8 +2,10 @@
 import Menu from "../Menu.astro";
 import Socials from "../Socials.astro";
 import Copyright from "../Copyright";
+import AnimatedBurger from "../AnimatedBurger.astro";
 
 import OpenNavigationButton from "../../../assets/icons/burger.svg";
+import CloseNavigationButton from "../../../assets/icons/close.svg";
 
 import { navigation } from "../../../data/navigation";
 
@@ -17,12 +19,13 @@ const items = navigation;
     aria-controls="mobile-menu-panel"
     aria-label="Открыть меню"
     type="button"
+    class="px-1 py-1.5"
   >
-    <OpenNavigationButton data-open class="text-pulse" />
+    <AnimatedBurger />
   </button>
 
   <aside data-panel>
-    <Menu items={items} />
+    <Menu class="flex flex-col" items={items} />
 
     <Socials />
 
