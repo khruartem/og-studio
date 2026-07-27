@@ -1,0 +1,11 @@
+{
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "tailwindCSS.classAttributes": ["class", "className", "class:list"],
+  "tailwindCSS.classFunctions": ["clsx"],
+  "tailwindCSS.experimental.configFile": "src/styles/global.css"
+}

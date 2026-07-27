@@ -1,0 +1,104 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props as Props;
+---
+
+<span class:list={["animated-burger", className]} aria-hidden="true">
+  <span class="animated-burger__line animated-burger__line--first"></span>
+  <span class="animated-burger__line animated-burger__line--second"></span>
+  <span class="animated-burger__line animated-burger__line--third"></span>
+  <span class="animated-burger__line animated-burger__line--fourth"></span>
+</span>
+
+<style>
+  .animated-burger {
+    --burger-width: 24px;
+    --burger-height: 20px;
+    --burger-long-line-width: 16px;
+    --burger-short-line-width: 8px;
+    --burger-line-height: 2px;
+    --burger-duration: 200ms;
+    --burger-easing: ease;
+
+    position: relative;
+    display: inline-block;
+    width: var(--burger-width);
+    height: var(--burger-height);
+    flex-shrink: 0;
+  }
+
+  .animated-burger__line {
+    position: absolute;
+    left: 0;
+    display: block;
+    height: var(--burger-line-height);
+    border-radius: 9999px;
+    background-color: currentColor;
+    transform: translateX(-50%);
+    transform-origin: center;
+    transition:
+      top var(--burger-duration) var(--burger-easing),
+      width var(--burger-duration) var(--burger-easing),
+      opacity 120ms var(--burger-easing),
+      transform var(--burger-duration) var(--burger-easing);
+  }
+
+  .animated-burger__line--first,
+  .animated-burger__line--second {
+    width: var(--burger-long-line-width);
+  }
+
+  .animated-burger__line--third,
+  .animated-burger__line--fourth {
+    width: var(--burger-short-line-width);
+  }
+
+  .animated-burger__line--first {
+    top: 0;
+  }
+
+  .animated-burger__line--second {
+    top: 6px;
+  }
+
+  .animated-burger__line--third {
+    top: 12px;
+  }
+
+  .animated-burger__line--fourth {
+    top: 18px;
+  }
+
+  :global([data-mobile-menu][data-state="open"]) .animated-burger__line--first {
+    top: 9px;
+    transform: translateX(-50%) rotate(45deg);
+  }
+
+  :global([data-mobile-menu][data-state="open"])
+    .animated-burger__line--second {
+    top: 9px;
+    transform: translateX(-50%) rotate(-45deg);
+  }
+
+  :global([data-mobile-menu][data-state="open"]) .animated-burger__line--third {
+    top: 9px;
+    opacity: 0;
+    transform: translateX(-50%) scaleX(0);
+  }
+
+  :global([data-mobile-menu][data-state="open"])
+    .animated-burger__line--fourth {
+    top: 9px;
+    opacity: 0;
+    transform: translateX(-50%) scaleX(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animated-burger__line {
+      transition: none;
+    }
+  }
+</style>
