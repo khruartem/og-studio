@@ -4,6 +4,10 @@
     scrollbar-width: none;
   }
 
+  html.is-scroll-locked {
+    overflow: hidden;
+  }
+
   body {
     background: var(--color-background);
     color: var(--color-text-primary);
