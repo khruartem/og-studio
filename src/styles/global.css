@@ -8,3 +8,6 @@
 
 /* Base HTML styles */
 @import "./base.css";
+
+/* Typography */
+@import "./typography.css"
