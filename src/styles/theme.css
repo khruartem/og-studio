@@ -25,6 +25,7 @@
   /* Typography */
   --font-sans: "Onest", sans-serif;
   --font-display: "Unbounded", sans-serif;
+  --tracking-default: 0.02em;
 
   /* Radius */
   --radius-sm: 0.5rem;
