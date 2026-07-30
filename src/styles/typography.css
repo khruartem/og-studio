@@ -1,6 +1,6 @@
 /* Display */
 @utility typography-display {
-  font-family: var(--font-heading);
+  font-family: var(--font-display);
   font-size: 32px;
   font-weight: 500;
   line-height: 48px;
@@ -9,7 +9,7 @@
 
 /* Heading */
 @utility typography-heading-1 {
-  font-family: var(--font-heading);
+  font-family: var(--font-display);
   font-size: 44px;
   font-weight: 400;
   line-height: 56px;
@@ -17,7 +17,7 @@
 }
 
 @utility typography-heading-2 {
-  font-family: var(--font-heading);
+  font-family: var(--font-display);
   font-size: 32px;
   font-weight: 500;
   line-height: 48px;
@@ -25,31 +25,87 @@
 }
 
 @utility typography-heading-3 {
-  font-family: var(--font-heading);
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: var(--tracking-default);
+}
+
+@utility typography-heading-4 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 40px;
+  letter-spacing: var(--tracking-default);
+}
+
+@utility typography-heading-5-lg {
+  font-family: var(--font-display);
   font-size: 20px;
   font-weight: 900;
   line-height: 32px;
   letter-spacing: var(--tracking-default);
 }
 
-@utility typography-heading-4 {
-  font-family: var(--font-heading);
+@utility typography-heading-5-md {
+  font-family: var(--font-display);
   font-size: 20px;
   font-weight: 500;
   line-height: 32px;
   letter-spacing: var(--tracking-default);
 }
 
-@utility typography-heading-4 {
-  font-family: var(--font-heading);
+@utility typography-heading-5-sm {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: var(--tracking-default);
+}
+
+@utility typography-heading-6 {
+  font-family: var(--font-display);
   font-size: 16px;
   font-weight: 500;
   line-height: 28px;
   letter-spacing: var(--tracking-default);
 }
 
+@utility typography-heading-7 {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: var(--tracking-default);
+}
+
 /* Body */
 @utility typography-body-1 {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: var(--tracking-default);
+}
+
+@utility typography-body-2 {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: var(--tracking-default);
+}
+
+@utility typography-body-3 {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: var(--tracking-default);
+}
+
+@utility typography-body-3 {
   font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 400;
@@ -57,10 +113,50 @@
   letter-spacing: var(--tracking-default);
 }
 
+@utility typography-body-4 {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: var(--tracking-default);
+}
+
 /* Utility text */
 @utility typography-label-1 {
-  font-family: var(--font-heading);
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: var(--tracking-default);
+}
+
+@utility typography-label-2 {
+  font-family: var(--font-display);
   font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: var(--tracking-default);
+}
+
+@utility typography-capture-1 {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: var(--tracking-default);
+}
+
+@utility typography-capture-2 {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: var(--tracking-default);
+}
+
+@utility typography-breadcrumbs {
+  font-family: var(--font-display);
+  font-size: 12px;
   font-weight: 400;
   line-height: 24px;
   letter-spacing: var(--tracking-default);

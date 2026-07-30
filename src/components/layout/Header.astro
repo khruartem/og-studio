@@ -1,0 +1,22 @@
+---
+import Logo from "../branding/Logo.astro";
+import Menu from "../ui/Menu.astro";
+
+import { navigation } from "../../data/navigation";
+import Container from "./Container.astro";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props as Props;
+---
+
+<header class={className}>
+  <Container class="flex justify-between items-center">
+    <Logo variant="dark" />
+    <nav>
+      <Menu items={navigation} />
+    </nav>
+  </Container>
+</header>
