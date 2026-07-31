@@ -2,8 +2,9 @@
 import Logo from "../branding/Logo.astro";
 import Menu from "../ui/Menu.astro";
 
-import { navigation } from "../../data/navigation";
+import { navigation as items } from "../../data/navigation";
 import Container from "./Container.astro";
+import MobileMenu from "../ui/MobileMenu";
 
 interface Props {
   class?: string;
@@ -16,7 +17,8 @@ const { class: className = "" } = Astro.props as Props;
   <Container class="flex justify-between items-center">
     <Logo variant="dark" />
     <nav>
-      <Menu items={navigation} />
+      <Menu items={items} class="hidden lg:flex" />
+      <MobileMenu items={items} class="flex flex-col gap-4 lg:hidden" />
     </nav>
   </Container>
 </header>
