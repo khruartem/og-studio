@@ -3,16 +3,21 @@ import Menu from "../Menu.astro";
 import Socials from "../Socials.astro";
 import Copyright from "../Copyright";
 import AnimatedBurger from "../AnimatedBurger.astro";
+import type { MenuItem } from "../../../data/navigation";
 
-import OpenNavigationButton from "../../../assets/icons/burger.svg";
-import CloseNavigationButton from "../../../assets/icons/close.svg";
+interface Props {
+  items: MenuItem[];
+  class?: string;
+}
 
-import { navigation } from "../../../data/navigation";
-
-const items = navigation;
+const { items, class: className = "" } = Astro.props as Props;
 ---
 
-<div class="mobile-menu" data-mobile-menu data-state="closed">
+<div
+  class:list={["mobile-menu", className]}
+  data-mobile-menu
+  data-state="closed"
+>
   <button
     data-trigger
     aria-expanded="false"
