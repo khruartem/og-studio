@@ -15,10 +15,10 @@ const { class: className } = Astro.props as Props;
 
 <style>
   .animated-burger {
-    --burger-width: 24px;
-    --burger-height: 20px;
-    --burger-long-line-width: 16px;
-    --burger-short-line-width: 8px;
+    --burger-width: 32px;
+    --burger-height: 32px;
+    --burger-long-line-width: 23px;
+    --burger-short-line-width: 12px;
     --burger-line-height: 2px;
     --burger-duration: 200ms;
     --burger-easing: ease;
@@ -27,17 +27,18 @@ const { class: className } = Astro.props as Props;
     display: inline-block;
     width: var(--burger-width);
     height: var(--burger-height);
-    flex-shrink: 0;
+    padding: 6px 4px;
+    color: var(--color-dark-pulse);
   }
 
   .animated-burger__line {
     position: absolute;
-    left: 0;
+    /* left: 0; */
     display: block;
     height: var(--burger-line-height);
-    border-radius: 9999px;
+    /* border-radius: 9999px; */
     background-color: currentColor;
-    transform: translateX(-50%);
+    /* transform: translateX(-50%); */
     transform-origin: center;
     transition:
       top var(--burger-duration) var(--burger-easing),
@@ -57,30 +58,38 @@ const { class: className } = Astro.props as Props;
   }
 
   .animated-burger__line--first {
-    top: 0;
+    /* top: 0; */
+    top: 5px;
   }
 
   .animated-burger__line--second {
-    top: 6px;
+    /* top: 6px; */
+    top: 11px;
   }
 
   .animated-burger__line--third {
-    top: 12px;
+    /* top: 12px; */
+    top: 17px;
   }
 
   .animated-burger__line--fourth {
-    top: 18px;
+    /* top: 18px; */
+    top: 23px;
   }
 
   :global([data-mobile-menu][data-state="open"]) .animated-burger__line--first {
-    top: 9px;
-    transform: translateX(-50%) rotate(45deg);
+    /* top: 9px;
+    transform: translateX(-50%) rotate(45deg); */
+    top: 15px;
+    transform: translateX(0) rotate(45deg);
   }
 
   :global([data-mobile-menu][data-state="open"])
     .animated-burger__line--second {
-    top: 9px;
-    transform: translateX(-50%) rotate(-45deg);
+    /* top: 9px;
+    transform: translateX(-50%) rotate(-45deg); */
+    top: 15px;
+    transform: translateX(0) rotate(-45deg);
   }
 
   :global([data-mobile-menu][data-state="open"]) .animated-burger__line--third {
