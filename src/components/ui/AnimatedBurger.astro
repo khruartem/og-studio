@@ -15,11 +15,12 @@ const { class: className } = Astro.props as Props;
 
 <style>
   .animated-burger {
-    --burger-width: 32px;
-    --burger-height: 32px;
-    --burger-long-line-width: 23px;
-    --burger-short-line-width: 12px;
+    --burger-width: 24px;
+    --burger-height: 20px;
+    --burger-long-line-width: var(--burger-width);
+    --burger-short-line-width: calc(var(--burger-width) / 2);
     --burger-line-height: 2px;
+    --burger-spacing: 6px;
     --burger-duration: 200ms;
     --burger-easing: ease;
 
@@ -27,7 +28,6 @@ const { class: className } = Astro.props as Props;
     display: inline-block;
     width: var(--burger-width);
     height: var(--burger-height);
-    padding: 6px 4px;
     color: var(--color-dark-pulse);
   }
 
@@ -58,37 +58,31 @@ const { class: className } = Astro.props as Props;
   }
 
   .animated-burger__line--first {
-    /* top: 0; */
-    top: 5px;
+    top: calc(0 * var(--burger-spacing));
   }
 
   .animated-burger__line--second {
-    /* top: 6px; */
-    top: 11px;
+    top: calc(1 * var(--burger-spacing));
   }
 
   .animated-burger__line--third {
-    /* top: 12px; */
-    top: 17px;
+    top: calc(2 * var(--burger-spacing));
   }
 
   .animated-burger__line--fourth {
-    /* top: 18px; */
-    top: 23px;
+    top: calc(3 * var(--burger-spacing));
   }
 
   :global([data-mobile-menu][data-state="open"]) .animated-burger__line--first {
-    /* top: 9px;
-    transform: translateX(-50%) rotate(45deg); */
-    top: 15px;
+    /* transform: translateX(-50%) rotate(45deg); */
+    top: 9px;
     transform: translateX(0) rotate(45deg);
   }
 
   :global([data-mobile-menu][data-state="open"])
     .animated-burger__line--second {
-    /* top: 9px;
-    transform: translateX(-50%) rotate(-45deg); */
-    top: 15px;
+    /* transform: translateX(-50%) rotate(-45deg); */
+    top: 9px;
     transform: translateX(0) rotate(-45deg);
   }
 

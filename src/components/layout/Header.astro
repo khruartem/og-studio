@@ -16,7 +16,7 @@ const { class: className = "" } = Astro.props as Props;
 <header class={className}>
   <Container class="flex justify-between items-center">
     <Logo variant="dark" />
-    <nav>
+    <nav aria-label="Навигация">
       <Menu items={items} class="hidden lg:flex" />
       <MobileMenu items={items} class="flex flex-col gap-4 lg:hidden" />
     </nav>

@@ -24,23 +24,38 @@ const { items, class: className = "" } = Astro.props as Props;
     aria-controls="mobile-menu-panel"
     aria-label="Открыть меню"
     type="button"
-    class="px-1 py-1.5"
+    class="px-1 py-1.5 w-8 h-8"
   >
     <AnimatedBurger />
   </button>
 
-  <aside data-panel>
-    <Menu class="flex flex-col" items={items} />
-
+  <aside
+    class="mobile-menu__panel absolute top-10 left-0 w-full bg-black"
+    data-panel
+  >
+    <Menu
+      class="flex flex-col w-fit items-center justify-self-center"
+      items={items}
+    />
     <Socials />
-
-    <Copyright />
+    <Copyright class="w-fit" />
   </aside>
 </div>
 
 <style>
-  [data-open] {
-    visibility: inherit;
+  .mobile-menu__panel {
+    --panel-height: calc(100dvh - 40px);
+
+    height: var(--panel-height);
+    overflow: hidden;
+  }
+
+  [data-mobile-menu][data-state="closed"] .mobile-menu__panel {
+    max-height: 0;
+  }
+
+  [data-mobile-menu][data-state="opened"] .mobile-menu__panel {
+    max-height: var(--panel-height);
   }
 </style>
 
