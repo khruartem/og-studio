@@ -1,0 +1,87 @@
+---
+import ArrowLeft from "../../assets/icons/arrow_left_segment.svg";
+import ArrowRight from "../../assets/icons/arrow_right_segment.svg";
+import SlantLeft from "../../assets/icons/slant_left_segment.svg";
+import SlantRight from "../../assets/icons/slant_right_segment.svg";
+
+type ButtonShape = "arrow" | "slant";
+
+interface Props {
+  shape: ButtonShape;
+  disabled?: boolean;
+  type?: "button" | "submit" | "reset";
+  class?: string;
+}
+
+const {
+  shape,
+  disabled = false,
+  type = "button",
+  class: className = "",
+} = Astro.props as Props;
+
+const LeftSegment = shape === "arrow" ? ArrowLeft : SlantLeft;
+const RightSegment = shape === "arrow" ? ArrowRight : SlantRight;
+---
+
+<button
+  data-shape={shape}
+  type={type}
+  disabled={disabled}
+  class:list={["button typography-label-2", className]}
+>
+  <LeftSegment class="button__shape button__shape--left" />
+  <span class="button__content">
+    <slot />
+  </span>
+  <RightSegment class="button__shape" />
+</button>
+
+<style>
+  .button {
+    --button-background: var(--color-dark-pulse);
+    --button-text: var(--color-light-100);
+
+    display: inline-flex;
+    align-items: stretch;
+    color: var(--button-background);
+    background: transparent;
+  }
+
+  .button:hover {
+    --button-background: var(--color-pulse);
+  }
+
+  .button:active {
+    --button-background: var(--color-lilac);
+  }
+
+  .button:disabled {
+    opacity: 0.5;
+  }
+
+  .button[data-shape="arrow"] .button__content {
+    padding-block: 8px;
+    padding-inline: 12px 16px;
+  }
+
+  .button[data-shape="slant"] .button__content {
+    padding-block: 12px;
+    padding-inline-end: 16px;
+  }
+
+  .button__content {
+    color: var(--button-text);
+    background-color: var(--button-background);
+  }
+
+  .button__shape {
+    width: auto;
+    height: auto;
+    flex-shrink: 0;
+  }
+
+  .button[data-shape="slant"] .button__shape--left {
+    margin-inline-end: -1px;
+  }
+</style>
