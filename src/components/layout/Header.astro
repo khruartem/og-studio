@@ -1,6 +1,7 @@
 ---
 import Logo from "../branding/Logo.astro";
 import Menu from "../ui/Menu.astro";
+import Button from "../ui/Button.astro";
 
 import { navigation as items } from "../../data/navigation";
 import Container from "./Container.astro";
@@ -20,5 +21,6 @@ const { class: className = "" } = Astro.props as Props;
       <Menu items={items} class="hidden lg:flex" />
       <MobileMenu items={items} class="flex flex-col gap-4 lg:hidden" />
     </nav>
+    <Button shape="arrow">Написать нам</Button>
   </Container>
 </header>

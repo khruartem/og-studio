@@ -47,6 +47,8 @@ const { items, class: className = "" } = Astro.props as Props;
     --panel-height: calc(100dvh - 40px);
 
     height: var(--panel-height);
+    transition: max-height .4s ease;
+    max-height: var(--panel-height);
     overflow: hidden;
   }
 
