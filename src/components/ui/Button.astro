@@ -17,7 +17,7 @@ const {
   shape,
   disabled = false,
   type = "button",
-  class: className = "",
+  class: className = "inline-flex",
 } = Astro.props as Props;
 
 const LeftSegment = shape === "arrow" ? ArrowLeft : SlantLeft;
@@ -28,7 +28,7 @@ const RightSegment = shape === "arrow" ? ArrowRight : SlantRight;
   data-shape={shape}
   type={type}
   disabled={disabled}
-  class:list={["button typography-label-2", className]}
+  class:list={["button items-stretch typography-label-2", className]}
 >
   <LeftSegment class="button__shape button__shape--left" />
   <span class="button__content">
@@ -42,8 +42,6 @@ const RightSegment = shape === "arrow" ? ArrowRight : SlantRight;
     --button-background: var(--color-dark-pulse);
     --button-text: var(--color-light-100);
 
-    display: inline-flex;
-    align-items: stretch;
     color: var(--button-background);
     background: transparent;
   }

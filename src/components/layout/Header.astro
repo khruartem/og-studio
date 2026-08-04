@@ -14,13 +14,17 @@ interface Props {
 const { class: className = "" } = Astro.props as Props;
 ---
 
-<header class={className}>
+<header class:list={["py-2 md:py-3 2xl:py-5 ", className]}>
   <Container class="flex justify-between items-center">
     <Logo variant="dark" />
-    <nav aria-label="Навигация">
-      <Menu items={items} class="hidden lg:flex" />
-      <MobileMenu items={items} class="flex flex-col gap-4 lg:hidden" />
-    </nav>
-    <Button shape="arrow">Написать нам</Button>
+    <div
+      class="flex flex-row-reverse gap-8 items-center lg:flex-row lg:gap-15"
+    >
+      <nav aria-label="Навигация">
+        <Menu items={items} class="hidden lg:flex" />
+        <MobileMenu items={items} class="flex flex-col gap-4 lg:hidden" />
+      </nav>
+      <Button shape="arrow" class="hidden md:inline-flex">Написать нам</Button>
+    </div>
   </Container>
 </header>
