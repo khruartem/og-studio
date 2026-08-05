@@ -34,7 +34,7 @@ const RightSegment = shape === "arrow" ? ArrowRight : SlantRight;
   <span class="button__content">
     <slot />
   </span>
-  <RightSegment class="button__shape" />
+  <RightSegment class="button__shape button__shape--right" />
 </button>
 
 <style>
@@ -79,7 +79,11 @@ const RightSegment = shape === "arrow" ? ArrowRight : SlantRight;
     flex-shrink: 0;
   }
 
-  .button[data-shape="slant"] .button__shape--left {
+  .button__shape--left {
     margin-inline-end: -1px;
+  }
+
+  .button__shape--right {
+    margin-inline-start: -1px;
   }
 </style>
