@@ -28,17 +28,14 @@ const { class: className } = Astro.props as Props;
     display: inline-block;
     width: var(--burger-width);
     height: var(--burger-height);
-    color: var(--color-dark-pulse);
+    color: currentColor;
   }
 
   .animated-burger__line {
     position: absolute;
-    /* left: 0; */
     display: block;
     height: var(--burger-line-height);
-    /* border-radius: 9999px; */
     background-color: currentColor;
-    /* transform: translateX(-50%); */
     transform-origin: center;
     transition:
       top var(--burger-duration) var(--burger-easing),
@@ -74,14 +71,12 @@ const { class: className } = Astro.props as Props;
   }
 
   :global([data-mobile-menu][data-state="open"]) .animated-burger__line--first {
-    /* transform: translateX(-50%) rotate(45deg); */
     top: 9px;
     transform: translateX(0) rotate(45deg);
   }
 
   :global([data-mobile-menu][data-state="open"])
     .animated-burger__line--second {
-    /* transform: translateX(-50%) rotate(-45deg); */
     top: 9px;
     transform: translateX(0) rotate(-45deg);
   }
