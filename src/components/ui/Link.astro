@@ -1,17 +1,12 @@
 ---
-import type { HTMLLinkTarget } from '../../shared/types/html';
+import type { HTMLAttributes } from "astro/types";
 
-interface Props {
-  href: string;
+type Props = HTMLAttributes<"a">;
 
-  target?: HTMLLinkTarget;
-  class?: string;
-}
-
-const { href, target, class: className = "" } = Astro.props as Props;
+const { class: className = "", ...restProps } = Astro.props as Props;
 ---
 
-<a href={href} target={target} class:list={["link", className]}><slot /></a>
+<a {...restProps} class:list={["link", className]}><slot /></a>
 
 <style>
   .link:hover {
