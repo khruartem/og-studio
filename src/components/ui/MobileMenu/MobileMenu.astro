@@ -1,4 +1,5 @@
 ---
+import Button from "../Button.astro";
 import Menu from "../Menu.astro";
 import Socials from "../Socials.astro";
 import Copyright from "../Copyright";
@@ -18,16 +19,17 @@ const { items, class: className = "" } = Astro.props as Props;
   data-mobile-menu
   data-state="closed"
 >
-  <button
+  <Button
+    shape="flat"
     data-trigger
     aria-expanded="false"
     aria-controls="mobile-menu-panel"
     aria-label="Открыть меню"
     type="button"
-    class="px-1 py-1.5 w-8 h-8"
+    class="px-2 py-2.5 w-10 h-10"
   >
     <AnimatedBurger />
-  </button>
+  </Button>
 
   <aside
     class="mobile-menu__panel absolute top-10 left-0 w-full bg-black"
@@ -47,7 +49,7 @@ const { items, class: className = "" } = Astro.props as Props;
     --panel-height: calc(100dvh - 40px);
 
     height: var(--panel-height);
-    transition: max-height .4s ease;
+    transition: max-height 0.4s ease;
     max-height: var(--panel-height);
     overflow: hidden;
   }
