@@ -1,9 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
+import Hero from "../components/sections/Hero.astro";
+
 const PAGE_TITLE = "OG Studio";
 ---
 
 <BaseLayout title={PAGE_TITLE}>
-  <main>Hello OG Studio</main>
+  <main>
+    <Hero />
+  </main>
 </BaseLayout>
