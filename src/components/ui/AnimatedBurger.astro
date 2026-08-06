@@ -6,7 +6,7 @@ interface Props {
 const { class: className } = Astro.props as Props;
 ---
 
-<span class:list={["animated-burger", className]} aria-hidden="true">
+<span class:list={["animated-burger my-1.5 mx-1", className]} aria-hidden="true">
   <span class="animated-burger__line animated-burger__line--first"></span>
   <span class="animated-burger__line animated-burger__line--second"></span>
   <span class="animated-burger__line animated-burger__line--third"></span>
