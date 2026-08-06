@@ -1,0 +1,24 @@
+---
+import Button from "../ui/Button.astro";
+import Icon from "../ui/Icon.astro";
+import ArrowDown from "../../assets/icons/arrow_down.svg";
+---
+
+<section
+  class="hero w-full h-dvh max-h-225 flex flex-col items-center justify-between 2xl:pbs-144 2xl:pbe-10"
+>
+  <h1 class="sr-only">Будь творцом. Стань концептом.</h1>
+  <h2 class="flex flex-col typography-heading-5-md items-center">
+    <span>А мы <span class="text-dark-pulse">раскроем</span> потенциал</span
+    ><span>и <span class="text-dark-pulse">расскажем</span> всем</span>
+  </h2>
+  <Button shape="flat"><ArrowDown /></Button>
+</section>
+
+<style>
+  .hero {
+    background-image: url(../../assets/backgrounds/hero-background.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+</style>

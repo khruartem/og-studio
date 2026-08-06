@@ -3,12 +3,14 @@ import Telegram from "../../assets/icons/telegram.svg";
 import VK from "../../assets/icons/vk.svg";
 import Burger from "../../assets/icons/burger.svg";
 import Close from "../../assets/icons/close.svg";
+import ArrowDowm from "../../assets/icons/arrow_down.svg";
 
 const icons = {
   telegram: Telegram,
   vk: VK,
   burger: Burger,
   close: Close,
+  arrowDown: ArrowDowm,
 } as const;
 
 type IconName = keyof typeof icons;
