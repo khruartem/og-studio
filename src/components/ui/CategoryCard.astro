@@ -10,7 +10,7 @@ const categoryMasks = {
   blogers: SlantedMask,
 } as const;
 
-type CategoryVariant = keyof typeof categoryMasks;
+export type CategoryVariant = keyof typeof categoryMasks;
 
 interface Props {
   variant: CategoryVariant;
@@ -21,20 +21,20 @@ interface Props {
 
 const { variant, image, title, class: className = "" } = Astro.props as Props;
 
-const mask = categoryMasks[variant];
+const mask = categoryMasks[variant].src;
 ---
 
 <article data-variant={variant} class:list={["category-card", className]}>
   <div
     class="category-card__media"
     style=`
-    --image: url(${image});
-    --mask: url(${mask});
+    --image: url("${image}");
+    --mask: url("${mask}");
   `
   >
   </div>
 
-  <h3 class="category-card__title typography-heading-5-lg">{title}</h3>
+  <h3 class="category-card__title typography-heading-5-lg text-dark-pulse">{title}</h3>
 </article>
 
 <style>
@@ -72,6 +72,11 @@ const mask = categoryMasks[variant];
     mask-size: 100% 100%;
     mask-position: center;
     mask-repeat: no-repeat;
+  }
+
+  .category-card[data-variant="theatre"] .category-card__media {
+    background-size: 233%;
+    background-position: 95% 54%;
   }
 
   .category-card__title {

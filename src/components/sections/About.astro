@@ -1,0 +1,37 @@
+---
+import Container from "../layout/Container.astro";
+
+import { categories } from "../../data/categories";
+import CategoryCard from "../ui/CategoryCard.astro";
+---
+
+<section>
+  <Container>
+    <div class="flex flex-col">
+      <ul class="flex gap-6">
+        {
+          categories.map(
+            (category, index) =>
+              index < 2 && (
+                <li>
+                  <CategoryCard {...category} />
+                </li>
+              ),
+          )
+        }
+      </ul>
+      <ul class="flex gap-6">
+        {
+          categories.map(
+            (category, index) =>
+              index >= 2 && (
+                <li>
+                  <CategoryCard {...category} />
+                </li>
+              ),
+          )
+        }
+      </ul>
+    </div>
+  </Container>
+</section>
