@@ -34,7 +34,9 @@ const mask = categoryMasks[variant].src;
   >
   </div>
 
-  <h3 class="category-card__title typography-heading-5-lg text-dark-pulse">{title}</h3>
+  <h3 class="category-card__title typography-heading-5-lg text-dark-pulse">
+    {title}
+  </h3>
 </article>
 
 <style>
@@ -79,6 +81,14 @@ const mask = categoryMasks[variant].src;
     background-position: 95% 54%;
   }
 
+  .category-card[data-variant="music"] .category-card__media {
+    background-size: 115%;
+    background-position: 52% 343%;
+
+    mask-size: contain;
+    mask-position: 100% 0%;
+  }
+
   .category-card__title {
     position: absolute;
   }
@@ -91,6 +101,7 @@ const mask = categoryMasks[variant].src;
   .category-card[data-variant="music"] .category-card__title {
     left: 0;
     top: 164px;
+    width: min-content;
   }
 
   .category-card[data-variant="designers"] .category-card__title {
