@@ -1,37 +1,56 @@
 ---
 import Container from "../layout/Container.astro";
+import CategoryCard from "../ui/CategoryCard.astro";
+import Decor from "../../assets/icons/about-decor.svg";
+import Button from "../ui/Button.astro";
 
 import { categories } from "../../data/categories";
-import CategoryCard from "../ui/CategoryCard.astro";
 ---
 
 <section>
-  <Container>
-    <div class="flex flex-col">
-      <ul class="flex gap-6">
-        {
-          categories.map(
-            (category, index) =>
-              index < 2 && (
-                <li>
-                  <CategoryCard {...category} />
-                </li>
-              ),
-          )
-        }
-      </ul>
-      <ul class="flex gap-6">
-        {
-          categories.map(
-            (category, index) =>
-              index >= 2 && (
-                <li>
-                  <CategoryCard {...category} />
-                </li>
-              ),
-          )
-        }
-      </ul>
+  <Container class="flex justify-between items-start pbs-42">
+    <div class="max-w-130">
+      <div class="section-title flex gap-11 pbe-11">
+        <Decor class="text-dark-pulse" />
+        <h2 class="typography-heading-5-md text-light-100">Кто мы?</h2>
+      </div>
+      <h3 class="mbs-17 mbe-29 typography-heading-2 text-light-100">
+        Диджитал-агенство для творческих людей и проектов в сфере искусства
+      </h3>
+      <Button shape="slant">Связаться с нами</Button>
     </div>
+
+    <!-- <ul class="grid grid-cols-2 gap-x-6"> -->
+    <ul class="flex flex-wrap max-w-266 gap-x-6 justify-end">
+      {
+        categories.map((category) => (
+          <li>
+            <CategoryCard {...category} />
+          </li>
+        ))
+      }
+    </ul>
   </Container>
 </section>
+
+<style>
+  .section-title {
+    position: relative;
+  }
+
+  .section-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background: linear-gradient(
+      90deg,
+      var(--color-dark-lilac) 0%,
+      var(--color-abyss) 100%
+    );
+  }
+</style>

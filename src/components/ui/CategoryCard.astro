@@ -10,14 +10,17 @@ const categoryMasks = {
   blogers: SlantedMask,
 } as const;
 
-export type CategoryVariant = keyof typeof categoryMasks;
+type CategoryVariant = keyof typeof categoryMasks;
 
-interface Props {
+export type Category = {
   variant: CategoryVariant;
   image: string;
-  title: string;
+  title: string | string[];
+};
+
+type Props = Category & {
   class?: string;
-}
+};
 
 const { variant, image, title, class: className = "" } = Astro.props as Props;
 
@@ -35,7 +38,11 @@ const mask = categoryMasks[variant].src;
   </div>
 
   <h3 class="category-card__title typography-heading-5-lg text-dark-pulse">
-    {title}
+    {
+      Array.isArray(title)
+        ? title.map((line) => <span class="block">{line}</span>)
+        : title
+    }
   </h3>
 </article>
 
@@ -66,19 +73,18 @@ const mask = categoryMasks[variant].src;
     height: 100%;
 
     background-image: var(--image);
-    background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
 
     mask-image: var(--mask);
-    mask-size: 100% 100%;
-    mask-position: center;
     mask-repeat: no-repeat;
   }
 
   .category-card[data-variant="theatre"] .category-card__media {
     background-size: 233%;
     background-position: 95% 54%;
+
+    mask-size: 100% 100%;
+    mask-position: center;
   }
 
   .category-card[data-variant="music"] .category-card__media {
@@ -87,6 +93,22 @@ const mask = categoryMasks[variant].src;
 
     mask-size: contain;
     mask-position: 100% 0%;
+  }
+
+  .category-card[data-variant="designers"] .category-card__media {
+    background-size: 138.5%;
+    background-position: -25% 78%;
+
+    mask-size: 92%;
+    mask-position: 100%;
+  }
+
+  .category-card[data-variant="blogers"] .category-card__media {
+    background-size: 125%;
+    background-position: 28% 8%;
+
+    mask-size: 100% 100%;
+    mask-position: center;
   }
 
   .category-card__title {

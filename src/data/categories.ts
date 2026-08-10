@@ -1,15 +1,9 @@
-import type { CategoryVariant } from "../components/ui/CategoryCard.astro";
+import type { Category } from "../components/ui/CategoryCard.astro";
 
 import theatre from "../assets/categories-bg/theatre.jpg";
 import music from "../assets/categories-bg/music.jpg";
 import designers from "../assets/categories-bg/designers.jpg";
 import blogers from "../assets/categories-bg/blogers.jpg";
-
-type Category = {
-  variant: CategoryVariant;
-  image: string;
-  title: string;
-};
 
 export const categories: Category[] = [
   {
@@ -25,11 +19,11 @@ export const categories: Category[] = [
   {
     variant: "designers",
     image: designers.src,
-    title: "Дизайнеры и художники",
+    title: ["Дизайнеры", "и художники"],
   },
   {
     variant: "blogers",
     image: blogers.src,
-    title: "Блоггеры и подкасты",
+    title: ["Блоггеры", "и подкасты"],
   },
 ];
