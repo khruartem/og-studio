@@ -1,10 +1,11 @@
 ---
-import Button from "../Button.astro";
-import Menu from "../Menu.astro";
-import Socials from "../Socials.astro";
-import Copyright from "../Copyright";
-import AnimatedBurger from "../AnimatedBurger.astro";
-import type { MenuItem } from "../../../data/navigation";
+import Button from "./Button.astro";
+import Menu from "./Menu.astro";
+import Socials from "./Socials.astro";
+import Copyright from "./Copyright";
+import AnimatedBurger from "./AnimatedBurger.astro";
+
+import type { MenuItem } from "../../data/navigation";
 
 interface Props {
   items: MenuItem[];
@@ -62,8 +63,8 @@ const { items, class: className = "" } = Astro.props as Props;
   }
 </style>
 
-<script>
+<!-- <script>
   import { initMobileMenu } from "./init-mobile-menu";
 
   initMobileMenu();
-</script>
+</script> -->

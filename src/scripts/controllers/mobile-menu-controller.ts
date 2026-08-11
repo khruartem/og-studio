@@ -1,4 +1,4 @@
-import { scrollLock } from "../../../lib/dom/lock-scroll";
+import { scrollLock } from "../../lib/dom/lock-scroll";
 
 export const createMobileMenu = (menu: HTMLElement) => {
   const trigger = menu.querySelector<HTMLButtonElement>("[data-trigger]");
