@@ -1,13 +1,17 @@
 ---
+import Title from "../ui/Title.astro";
 import Button from "../ui/Button.astro";
-import Icon from "../ui/Icon.astro";
 import ArrowDown from "../../assets/icons/arrow_down.svg";
+
+import titleHero from "../../assets/titles/title-hero.png";
 ---
 
 <section
-  class="hero w-full h-dvh max-h-225 flex flex-col items-center justify-between 2xl:pbs-144 2xl:pbe-10"
+  class="hero w-full h-dvh max-h-225 flex flex-col items-center justify-between relative 2xl:pbs-144 2xl:pbe-10"
 >
-  <h1 class="sr-only">Будь творцом. Стань концептом.</h1>
+  <Title level={1} image={titleHero.src} class="hero__title"
+    >Будь творцом. Стань концептом.</Title
+  >
   <h2 class="flex flex-col typography-heading-5-md items-center">
     <span>А мы <span class="text-dark-pulse">раскроем</span> потенциал</span
     ><span>и <span class="text-dark-pulse">расскажем</span> всем</span>
@@ -20,5 +24,18 @@ import ArrowDown from "../../assets/icons/arrow_down.svg";
     background-image: url(../../assets/backgrounds/hero-background.png);
     background-size: cover;
     background-repeat: no-repeat;
+  }
+
+  :global(.hero__title) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  :global(.hero__title > img) {
+    width: 100%;
+    height: 100%;
   }
 </style>
