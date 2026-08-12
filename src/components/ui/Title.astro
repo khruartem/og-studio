@@ -1,17 +1,16 @@
 ---
 interface Props {
-  title: string;
   image: string;
   level?: 1 | 2 | 3;
   class?: string;
 }
 
-const { title, image, level = 2, class: className = "" } = Astro.props as Props;
+const { image, level = 2, class: className = "" } = Astro.props as Props;
 
 const Heading = `h${level}` as const;
 ---
 
 <div class={className}>
-  <Heading class="sr-only">{title}</Heading>
+  <Heading class="sr-only"><slot /></Heading>
   <img src={image} alt="Заголовок" aria-hidden="true" />
 </div>
