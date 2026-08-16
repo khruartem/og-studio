@@ -3,14 +3,27 @@ import Container from "../layout/Container.astro";
 import Title from "../ui/Title.astro";
 
 import titleServices from "../../assets/titles/title-services.png";
+
+import { services } from "../../data/services";
+import ServiceItem from "../ui/ServiceItem.astro";
 ---
 
-<section>
+<section data-services>
   <Container class="flex flex-col items-center 2xl:pbs-28 2xl:gap-22">
     <Title
       level={2}
       image={titleServices.src}
       class="h-auto 2xl:max-w-200 2xl:mbs-42">Что мы умеем</Title
     >
+
+    <ul class="w-full">
+      {
+        services.map((item) => (
+          <li>
+            <ServiceItem {...item} />
+          </li>
+        ))
+      }
+    </ul>
   </Container>
 </section>
