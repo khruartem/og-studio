@@ -1,0 +1,23 @@
+---
+import shellImg from "../../assets/icons/services/bg_graph.png";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props as Props;
+---
+
+<img src={shellImg.src} class={className} />
+
+<style>
+  .service-icon-shell {
+    --service-shell-background: #201750;
+    --service-shell-border: var(--color-dark-pulse);
+    --service-shell-noise: var(--color-abyss);
+
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+</style>

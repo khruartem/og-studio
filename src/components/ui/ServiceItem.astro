@@ -1,0 +1,235 @@
+---
+import Play from "../../assets/icons/play.svg";
+import ServiceIconShell from "./ServiceIconShell.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+const { title, description, icon } = Astro.props as Props;
+---
+
+<article
+  class="service-item 2xl:gap-x-67.25"
+  data-service-item
+  data-state="idle"
+>
+  <div class="service-item__main">
+    <h3 class="service-item__title typography-heading-2">
+      {title}
+    </h3>
+
+    <div class="service-item__action" aria-hidden="true">
+      <span class="service-item__arrow">
+        <Play />
+      </span>
+
+      <span class="service-item__visual">
+        <ServiceIconShell class="service-item__icon-shell" />
+        <img src={icon} alt="" class="service-item__icon" />
+      </span>
+    </div>
+  </div>
+
+  <p class="service-item__description typography-heading-6">
+    {description}
+  </p>
+</article>
+
+<style>
+  .service-item {
+    position: relative;
+
+    display: grid;
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(280px, 420px);
+    align-items: center;
+    /* column-gap: clamp(40px, 14vw, 269px); */
+
+    padding-block: 20px;
+
+    cursor: pointer;
+  }
+
+  .service-item__main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+    min-width: 0;
+  }
+
+  .service-item__title {
+    margin: 0;
+
+    color: var(--color-light-100);
+
+    transition:
+      color 250ms ease,
+      transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+      text-shadow 250ms ease;
+  }
+
+  .service-item__description {
+    margin: 0;
+
+    color: var(--color-light-80);
+
+    transition:
+      color 250ms ease,
+      transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 250ms ease;
+  }
+
+  .service-item__action {
+    position: relative;
+
+    display: grid;
+    width: 148px;
+    height: 148px;
+
+    flex: 0 0 auto;
+    place-items: center;
+  }
+
+  /* ---------- Arrow ---------- */
+
+  .service-item__arrow {
+    position: absolute;
+    z-index: 2;
+
+    display: grid;
+    width: 32px;
+    height: 32px;
+
+    place-items: center;
+
+    color: var(--color-pulse);
+
+    opacity: 1;
+    filter: blur(0);
+
+    transform: scale(1) rotate(0);
+
+    transition:
+      opacity 160ms ease,
+      filter 220ms ease,
+      transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .service-item__visual {
+    position: absolute;
+    top: -46%;
+    left: -28%;
+    z-index: 1;
+
+    width: 280px;
+    height: 280px;
+
+    display: grid;
+    place-items: center;
+
+    opacity: 0;
+    filter: blur(6px);
+
+    transform: scale(0.4) rotate(-8deg);
+
+    pointer-events: none;
+
+    transition:
+      opacity 200ms ease,
+      filter 320ms ease,
+      transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .service-item__icon {
+    position: absolute;
+    z-index: 2;
+
+    display: block;
+
+    width: 100px;
+    height: 100px;
+
+    object-fit: contain;
+
+    opacity: 0;
+
+    transform: scale(0.65) rotate(-6deg);
+
+    transition:
+      opacity 220ms ease 80ms,
+      transform 400ms cubic-bezier(0.16, 1, 0.3, 1) 40ms;
+  }
+
+  /* ---------- Active state ---------- */
+
+  .service-item:is(:hover, [data-state="active"]) .service-item__title {
+    color: var(--color-pulse);
+
+    text-shadow: 0 0 18px rgb(199 47 203 / 0.16);
+  }
+
+  .service-item:is(:hover, [data-state="active"]) .service-item__arrow {
+    opacity: 0;
+
+    filter: blur(4px);
+
+    transform: scale(0.15) rotate(20deg);
+  }
+
+  .service-item:is(:hover, [data-state="active"]) .service-item__visual {
+    opacity: 1;
+
+    filter: blur(0);
+
+    transform: scale(1) rotate(0);
+  }
+
+  .service-item:is(:hover, [data-state="active"]) .service-item__icon {
+    opacity: 1;
+
+    transform: scale(1) rotate(0);
+  }
+
+  /* ---------- Responsive ---------- */
+
+  @media (max-width: 767px) {
+    .service-item {
+      grid-template-columns: 1fr;
+
+      row-gap: 16px;
+
+      padding-block: 18px;
+    }
+
+    .service-item__description {
+      max-width: 90%;
+    }
+
+    .service-item__action {
+      width: 48px;
+      height: 48px;
+    }
+
+    .service-item__icon-shell {
+      width: 46px;
+      height: 46px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .service-item__title,
+    .service-item__description,
+    .service-item__arrow,
+    .service-item__icon-shell,
+    .service-item__icon,
+    .service-item__icon-shell::before {
+      transition: none;
+    }
+  }
+</style>
