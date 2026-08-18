@@ -1,18 +1,11 @@
-import { createMobileMenu } from "./controllers/mobile-menu-controller";
-import { ServicesController } from "./controllers/service-item-controller";
+import { initMobileMenu } from "./init/mobile-menu-init";
+import { initSectionTransitions } from "./init/section-transitions-init";
+import { initServiceItem } from "./init/service-item-init";
 
 const init = (): void => {
-  document
-    .querySelectorAll<HTMLElement>("[data-mobile-menu]")
-    .forEach((menu) => {
-      createMobileMenu(menu).init();
-    });
-
-  document
-    .querySelectorAll<HTMLElement>("[data-services]")
-    .forEach((services) => {
-      new ServicesController(services).init();
-    });
+  initMobileMenu();
+  initServiceItem();
+  initSectionTransitions();
 };
 
 init();

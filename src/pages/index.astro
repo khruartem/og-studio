@@ -4,14 +4,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/sections/Hero.astro";
 import About from "../components/sections/About.astro";
 import Services from "../components/sections/Services.astro";
+import SectionTransition from "../components/ui/SectionTransition.astro";
 
 const PAGE_TITLE = "OG Studio";
 ---
 
 <BaseLayout title={PAGE_TITLE}>
   <main>
-    <Hero />
-    <About />
+    <SectionTransition>
+      <Hero slot="upper" />
+      <About slot="lower" />
+    </SectionTransition>
     <Services />
   </main>
 </BaseLayout>
