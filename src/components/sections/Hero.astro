@@ -16,7 +16,7 @@ import titleHero from "../../assets/titles/title-hero.png";
     <span>А мы <span class="text-dark-pulse">раскроем</span> потенциал</span
     ><span>и <span class="text-dark-pulse">расскажем</span> всем</span>
   </h2>
-  <Button shape="flat"><ArrowDown /></Button>
+  <Button class="hero__button" shape="flat"><ArrowDown /></Button>
 </section>
 
 <style>
@@ -37,5 +37,20 @@ import titleHero from "../../assets/titles/title-hero.png";
   :global(.hero__title > img) {
     width: 100%;
     height: 100%;
+  }
+
+  .hero__button {
+    animation: float-y 1.6s infinite ease-in-out;
+  }
+
+  @keyframes float-y {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(10px);
+    }
   }
 </style>

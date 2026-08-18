@@ -1,0 +1,82 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props as Props;
+---
+
+<div class:list={["section-transition", className]} data-section-transition>
+  <div class="section-transition__upper" data-section-transition-upper>
+    <slot name="upper" />
+
+    <div class="section-transition__overlay" aria-hidden="true"></div>
+  </div>
+
+  <div class="section-transition__lower" data-section-transition-lower>
+    <slot name="lower" />
+  </div>
+</div>
+
+<style>
+  .section-transition {
+    --transition-progress: 0;
+
+    --transition-scale-delta: 0.04;
+    --transition-blur: 10px;
+
+    position: relative;
+  }
+
+  .section-transition__upper {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+
+    height: 100svh;
+    overflow: hidden;
+
+    opacity: calc(1 - var(--transition-progress));
+
+    filter: blur(calc(var(--transition-progress) * var(--transition-blur)));
+
+    transform: scale(
+      calc(1 - var(--transition-progress) * var(--transition-scale-delta))
+    );
+
+    transform-origin: center;
+    will-change: opacity, filter, transform;
+  }
+
+  .section-transition__lower {
+    position: relative;
+    z-index: 3;
+
+    min-height: 100svh;
+  }
+
+  .section-transition__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    background: var(--color-background);
+
+    opacity: calc(var(--transition-progress) * 0.85);
+
+    pointer-events: none;
+
+    will-change: opacity;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .section-transition__upper {
+      filter: none;
+      transform: none;
+    }
+
+    .section-transition__overlay {
+      display: none;
+    }
+  }
+</style>

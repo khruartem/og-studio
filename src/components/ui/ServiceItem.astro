@@ -47,9 +47,6 @@ const { title, description, icon } = Astro.props as Props;
       minmax(0, 1fr)
       minmax(280px, 420px);
     align-items: center;
-    /* column-gap: clamp(40px, 14vw, 269px); */
-
-    padding-block: 20px;
 
     cursor: pointer;
   }
@@ -75,7 +72,7 @@ const { title, description, icon } = Astro.props as Props;
   }
 
   .service-item__description {
-    margin: 0;
+    margin-inline-start: -100px;
 
     color: var(--color-light-80);
 
@@ -105,6 +102,8 @@ const { title, description, icon } = Astro.props as Props;
     display: grid;
     width: 32px;
     height: 32px;
+
+    margin-inline-start: 48px;
 
     place-items: center;
 
@@ -168,7 +167,8 @@ const { title, description, icon } = Astro.props as Props;
 
   /* ---------- Active state ---------- */
 
-  .service-item:is(:hover, [data-state="active"]) .service-item__title {
+  .service-item:is(:hover, [data-state="active"])
+    :is(.service-item__title, .service-item__description) {
     color: var(--color-pulse);
 
     text-shadow: 0 0 18px rgb(199 47 203 / 0.16);
