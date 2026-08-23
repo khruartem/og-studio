@@ -2,17 +2,24 @@
 import Play from "../../assets/icons/play.svg";
 import ServiceIconShell from "./ServiceIconShell.astro";
 
-interface Props {
-  title: string;
-  description: string;
-  icon: string;
-}
+import type { ServiceItem } from "../../data/services";
 
-const { title, description, icon } = Astro.props as Props;
+type Props = ServiceItem & {
+  class?: string;
+};
+
+const {
+  title,
+  description,
+  icon,
+  class: className = "",
+} = Astro.props as Props;
+
+const ServiceIcon = icon;
 ---
 
 <article
-  class="service-item 2xl:gap-x-67.25"
+  class:list={["service-item 2xl:gap-x-67.25", className]}
   data-service-item
   data-state="idle"
 >
@@ -28,7 +35,7 @@ const { title, description, icon } = Astro.props as Props;
 
       <span class="service-item__visual">
         <ServiceIconShell class="service-item__icon-shell" />
-        <img src={icon} alt="" class="service-item__icon" />
+        <ServiceIcon class="service-item__icon" />
       </span>
     </div>
   </div>

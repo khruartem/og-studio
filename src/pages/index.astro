@@ -5,6 +5,7 @@ import Hero from "../components/sections/Hero.astro";
 import About from "../components/sections/About.astro";
 import Services from "../components/sections/Services.astro";
 import SectionTransition from "../components/layout/SectionTransition.astro";
+import Cases from "../components/sections/Cases.astro";
 
 const PAGE_TITLE = "OG Studio";
 ---
@@ -16,5 +17,6 @@ const PAGE_TITLE = "OG Studio";
       <About slot="lower" />
     </SectionTransition>
     <Services />
+    <Cases />
   </main>
 </BaseLayout>
