@@ -1,0 +1,20 @@
+---
+import Container from "../layout/Container.astro";
+import CaseItem from "../ui/CaseItem.astro";
+
+import { cases } from "../../data/cases";
+---
+
+<section>
+  <Container>
+    <ul>
+      {
+        cases.map((item) => (
+          <li>
+            <CaseItem {...item} />
+          </li>
+        ))
+      }
+    </ul>
+  </Container>
+</section>

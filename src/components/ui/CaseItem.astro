@@ -1,3 +1,89 @@
-<article>
-  
+---
+import { Image } from "astro:assets";
+import type { CaseItem } from "../../data/cases";
+import { services } from "../../data/services";
+
+type Props = CaseItem & {
+  class?: string;
+};
+
+const {
+  image,
+  title,
+  text,
+  color,
+  href,
+  serviceIds,
+  class: className = "",
+} = Astro.props as Props;
+
+const badges = serviceIds.map((id) => {
+  const service = services.find((service) => service.id === id);
+
+  if (!service) {
+    throw new Error(`Unknown service id: ${id}`);
+  }
+
+  return service;
+});
+
+const colorClasses = {
+  nephritis: "text-nephritis-120",
+  badge: "text-badge",
+} as const;
+
+const titleColorClass = colorClasses[color];
+---
+
+<article class:list={["flex flex-col typography-body-3-sm", className]}>
+  <a class="case-item__link" href={href}>
+    <Image src={image} alt="" class="w-full h-auto" />
+    <div class="flex flex-col gap-1 pbs-8 pbe-6">
+      <h3 class:list={["typography-heading-5-lg", titleColorClass]}>{title}</h3>
+      <p class="text-light-100">{text}</p>
+    </div>
+    <ul class="flex flex-wrap gap-x-6 gap-y-3" aria-label="Услуги в проекте">
+      {
+        badges.map((badge) => {
+          const Badge = badge.badgeIcon;
+
+          return (
+            <li class="flex items-center gap-2 whitespace-nowrap text-lilac">
+              <span class="case-item__badge-icon" aria-hidden="true">
+                <Badge />
+              </span>
+              <span class="typography-label-3">{badge.title}</span>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </a>
 </article>
+
+<style>
+  .case-item__link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .case-item__link:focus-visible {
+    outline: 2px solid var(--color-pulse);
+    outline-offset: 6px;
+  }
+
+  .case-item__badge-icon {
+    display: grid;
+
+    width: 24px;
+    height: 24px;
+
+    flex: 0 0 auto;
+    place-items: center;
+  }
+
+  .case-item__badge-icon > img {
+    max-height: 100%;
+  }
+</style>
