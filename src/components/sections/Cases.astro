@@ -6,11 +6,11 @@ import { cases } from "../../data/cases";
 ---
 
 <section>
-  <Container>
-    <ul>
+  <Container class="2xl:pbs-70 pbe-42">
+    <ul class="flex flex-wrap 2xl:gap-6">
       {
         cases.map((item) => (
-          <li>
+          <li class="2xl:max-w-198">
             <CaseItem {...item} />
           </li>
         ))
