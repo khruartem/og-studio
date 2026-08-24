@@ -46,13 +46,14 @@ const titleColorClass = colorClasses[color];
       {
         badges.map((badge) => {
           const Badge = badge.badgeIcon;
+          const { title, badgeTitle } = badge;
 
           return (
             <li class="flex items-center gap-2 whitespace-nowrap text-lilac">
               <span class="case-item__badge-icon" aria-hidden="true">
                 <Badge />
               </span>
-              <span class="typography-label-3">{badge.title}</span>
+              <span class="typography-label-3">{badgeTitle ?? title}</span>
             </li>
           );
         })

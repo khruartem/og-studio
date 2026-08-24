@@ -21,6 +21,7 @@ export type ServiceId = "identity" | "ux" | "smm" | "pr" | "prod" | "dev";
 export type ServiceItem = {
   id: ServiceId;
   title: string;
+  badgeTitle?: string;
   description: string;
   icon: ServiceIcon;
   badgeIcon: ServiceIcon;
@@ -46,6 +47,7 @@ export const services: ServiceItem[] = [
   {
     id: "smm",
     title: "Маркетинг социальных сетей",
+    badgeTitle: "SMM",
     description:
       "Оформляем и ведем социальные сети в соответствии с вашими целями, фирменным стилем и философией бренда",
     icon: SmmIcon,
@@ -54,6 +56,7 @@ export const services: ServiceItem[] = [
   {
     id: "pr",
     title: "Общественные связи",
+    badgeTitle: "PR",
     description:
       "Разрабатываем стратегии долгосрочного сотрудничества со СМИ, управляем репутацией и отрабатываем иновоподы так, чтобы доверие стало спутником роста",
     icon: PrIcon,
@@ -62,6 +65,7 @@ export const services: ServiceItem[] = [
   {
     id: "prod",
     title: "Контент и производство",
+    badgeTitle: "Продакшн",
     description:
       "Организуем фото- и видеосъемки от идеи до реализации, производим рекламные ролики, актерские визитки, кино и сериалы по вашему запросу",
     icon: ProdIcon,
