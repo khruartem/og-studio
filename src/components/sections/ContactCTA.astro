@@ -1,0 +1,39 @@
+---
+import Container from "../layout/Container.astro";
+import Title from "../ui/Title.astro";
+import Button from "../ui/Button.astro";
+
+import titleCta from "../../assets/titles/title-cta.png";
+---
+
+<section class="flex flex-col items-center 2xl:pbs-50 gap-15">
+  <!-- <Container class="flex flex-col items-center 2xl:pbs-50 gap-15"> -->
+  <Title level={2} image={titleCta} class="2xl:max-w-243 max-h-40"
+    >Расскажите нам о своем проекте</Title
+  >
+  <div
+    class="cta__big flex flex-col items-center w-full text-light-100 2xl:pbs-25 pbe-101 gap-32"
+  >
+    <h3 class="typography-heading-4 text-center 2xl:inline-block max-w-198">
+      Мы возьмём на себя весь спектр работ и комплексно оформим Ваш проект в
+      цифровой среде: бренд, платформа и продвижение.
+    </h3>
+    <div class="flex flex-col items-center 2xl:max-w-130 gap-10">
+      <Button shape="slant">Связаться с нами</Button>
+      <span class="typography-body-2 text-center"
+        >Заполните короткую анкету, чтобы получить персональную стратегию
+        системного масштабирования.</span
+      >
+    </div>
+  </div>
+  <!-- </Container> -->
+</section>
+
+<style>
+  .cta__big {
+    background-image: url(../../assets/backgrounds/cta-background.png);
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+  }
+</style>
