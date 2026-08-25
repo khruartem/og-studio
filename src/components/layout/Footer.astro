@@ -1,0 +1,38 @@
+---
+import Container from "./Container.astro";
+import Logo from "../branding/Logo.astro";
+import Socials from "../ui/Socials.astro";
+import Menu from "../ui/Menu.astro";
+import Button from "../ui/Button.astro";
+import Copyright from "../ui/Copyright.astro";
+
+import {
+  casesNavigation as cases,
+  servicesNavigation as services,
+} from "../../data/navigation";
+---
+
+<footer>
+  <Container>
+    <div>
+      <div>
+        <Logo variant="light" />
+        <Socials />
+        <Button shape="arrow">Связаться с нами</Button>
+      </div>
+      <div>
+        <nav>
+          <p>Кейсы</p>
+          <Menu items={cases} class="typography-body-3-sm" />
+        </nav>
+        <nav>
+          <p>Что мы умеем</p>
+          <Menu items={services} class="typography-body-3-sm" />
+        </nav>
+      </div>
+    </div>
+    <div>
+      <Copyright />
+    </div>
+  </Container>
+</footer>
