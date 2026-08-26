@@ -24,31 +24,34 @@ export const headerNavigation: MenuItem[] = [
 
 export const casesNavigation: MenuItem[] = [
   {
-    label: "Что мы умеем",
-    href: "#services",
-  },
-  {
-    label: "Кейсы",
-    href: "#cases",
-  },
-  {
-    label: "Клиенты",
-    href: "#clients",
+    label: "Открытая Территория",
+    href: "/otkter",
   },
 ];
 
 export const servicesNavigation: MenuItem[] = [
   {
-    label: "Что мы умеем",
-    href: "#services",
+    label: "Айдентика",
+    href: "/identity",
   },
   {
-    label: "Кейсы",
-    href: "#cases",
+    label: "Сайты и интерфейсы",
+    href: "/ux",
   },
   {
-    label: "Клиенты",
-    href: "#clients",
+    label: "SMM",
+    href: "/smm",
+  },
+  {
+    label: "PR",
+    href: "/pr",
+  },
+  {
+    label: "Продакшн",
+    href: "/prod",
+  },
+  {
+    label: "Разработка",
+    href: "/dev",
   },
 ];
-

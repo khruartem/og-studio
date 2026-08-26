@@ -13,25 +13,29 @@ import {
 ---
 
 <footer>
-  <Container>
-    <div>
-      <div>
-        <Logo variant="light" />
-        <Socials />
+  <Container class="flex flex-col gap-10 pbs-20 pbe-5 2xl:pbs-25 2xl:pbe-10">
+    <div class="w-full flex justify-between">
+      <div
+        class="w-full flex gap-6 md:w-fit md:flex-col md:justify-between md:content-start"
+      >
+        <div class="flex justify-between w-full md:w-24 md:flex-col md:gap-6">
+          <Logo variant="light" />
+          <Socials />
+        </div>
         <Button shape="arrow">Связаться с нами</Button>
       </div>
-      <div>
+      <div class="flex flex-col gap-8 lg:flex-row lg:gap-27">
         <nav>
           <p>Кейсы</p>
-          <Menu items={cases} class="typography-body-3-sm" />
+          <Menu items={cases} class="typography-body-3-sm flex lg:flex-col" />
         </nav>
         <nav>
           <p>Что мы умеем</p>
-          <Menu items={services} class="typography-body-3-sm" />
+          <Menu items={services} class="typography-body-3-sm flex lg:flex-col" />
         </nav>
       </div>
     </div>
-    <div>
+    <div class="pbs-5 border-t-semi-abyss border-t-2 border-solid">
       <Copyright />
     </div>
   </Container>
