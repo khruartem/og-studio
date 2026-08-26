@@ -21,7 +21,7 @@ const { class: className = "" } = Astro.props as Props;
       class="flex flex-row-reverse gap-8 items-center lg:flex-row lg:gap-15"
     >
       <nav aria-label="Навигация">
-        <Menu items={items} class="hidden typography-label-2 lg:flex" />
+        <Menu items={items} class="gap-10 hidden typography-label-2 lg:flex" />
         <MobileMenu items={items} class="flex flex-col gap-4 lg:hidden" />
       </nav>
       <Button shape="arrow" class="hidden md:inline-flex">Написать нам</Button>
